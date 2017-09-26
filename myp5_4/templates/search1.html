@@ -1,0 +1,72 @@
+<!--  ##############################################################################
+#Name : BINOD KATWAL                                        Date: 04/25/17
+#Class : CS316 
+#Project:  05 
+##############################################################################    -->
+
+{% extends "base.html" %} <!-- Gets  Base HTML   -->
+
+{% block content %}
+<!-- Displays below Html in the search records by graping all keys and values from json file  -->
+<h1> Search records!</h1> 
+<body bgcolor= "lightblue" >
+ 
+<form action="/search" method="post" name="search">
+{#      {{ form.hidden_tag() }}  #}
+
+      <p>
+      	<br>
+    Select parameters to search:<br> 
+    Error0 <br>
+    
+    <!-- Gets  file to search    -->
+   
+    <p>
+    <select name='fileToSearch'>
+    
+         {% for key, value in form.fileToSearch.iteritems() %}
+      
+         	<option value = "{{ value }}"> {{ key }} </option>
+          
+            
+         {% endfor %}
+    </select>
+    
+    <!-- Gets  value to match    -->
+    <p>
+
+    <select name='WhatToMatch'>
+    
+         {% for key, value in form.WhatToMatch.iteritems() %}
+      
+            <option value = "{{ value }}"> {{ value }} </option>
+          
+            
+         {% endfor %}
+    </select>  </select>  <input type='text' name='matchValue'> 
+    
+    <!-- look for stat depending on max or min   -->
+    <p>
+    <select name='statToSearch'>
+    
+         {% for key, value in form.statToSearch.iteritems()  %}
+      
+         	<option value = "{{ value }}"> {{ value }} </option>
+          
+            
+         {% endfor %}
+   
+    </select>
+   <!-- Max or min    -->
+    <p>
+    <select name='maxOrmin'> ";
+        <option value='Max'>Max</option>";
+        <option value='Min'>Min</option>";
+    </select>
+       </p>
+      <p><input type="submit" value="Search"></p>
+      
+</form></body>
+{% endblock %}
+
+

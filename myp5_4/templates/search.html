@@ -1,0 +1,22 @@
+
+<!--  Name: BINOD KATWAL CS316 Project 5 Flask Spring 2017   -->
+<!-- This is the search function used by myForms  -->
+
+{% extends "base.html" %} <!-- calls base.html  -->
+
+{% block content %}
+<!--  Perfom below, render by views.py, displays valuses in Html  -->
+<h1>Search</h1>
+<form action="" method="post" name="search">
+      {{ form.hidden_tag() }}
+      <p>
+          Select your search criteria below:<br>
+		  Example:  .json      high<br>
+          {{ form.fileToSearch(size=15) }} <!--  Gets Information of file, Whattomatch, max and min and stas  -->
+          {{ form.WhatToMatch(size=12) }}
+          {{ form.statToSearch(size=10) }}
+          {{ form.maxOrmin(size=4) }}
+      </p>
+      <p><input type="submit" value="Search"></p>
+</form>
+{% endblock %}

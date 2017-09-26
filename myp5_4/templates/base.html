@@ -1,0 +1,32 @@
+<!--  ##############################################################################
+#Name : BINOD KATWAL                                Date: 04/25/17
+#Class : CS316 
+#Project:  05 
+##############################################################################   -->
+<!--  Use of Flask inside Html to display base of the  web server -->
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - UK Stat Search</title>
+    {% else %}
+    <title>Welcome to UK Stat Search</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>UK Stat Search: <a href="/">Home</a></div> <!--  HOMe  -->
+    <div>UK Stat Search: <a href="/search">Search</a></div><!--  will perform searcc  -->
+    
+    <div>UK Stat Search: <a href="/notused">Not Used</a></div><!-- Not valid  -->
+    <hr>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+			{% for message in messages %} 
+				<li>{{ message }} </li> <!--  message call  -->
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
